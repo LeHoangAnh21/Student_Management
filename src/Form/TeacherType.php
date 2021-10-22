@@ -6,6 +6,9 @@ use App\Entity\Teacher;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class TeacherType extends AbstractType
 {
@@ -17,6 +20,34 @@ class TeacherType extends AbstractType
             ->add('birthday')
             ->add('major')
             ->add('image')
+
+            ->add('name', TextType::class,
+            [
+                'label' => 'Teacher Name',
+                'required' => true
+            ])
+            ->add('email', TextType::class,
+            [
+                'label' => 'Teacher Email',
+                'required' => true
+            ])
+            ->add('birthday', DateType::class, 
+            [
+                'label' => 'Teacher Birthday',
+                'required' => true,
+                'widget' => 'single_text'
+            ])
+            ->add('major', TextType::class,
+            [
+                'label' => 'Major',
+                'required' => true
+            ])
+            ->add('image', FileType::class,
+            [
+                'label' => "Teacher Image",
+                'data_class' => null,
+                'required' => is_null($builder->getData()->getImage())
+            ])
         ;
     }
 
