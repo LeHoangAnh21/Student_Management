@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+  <head>
+    <meta charset="UTF-8" />
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <title>
+      {% block title %}
+        Welcome!
+      {% endblock %}
+    </title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        rel="stylesheet" />
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        rel="stylesheet" />
+      <!-- MDB -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+        rel="stylesheet" />
+      {# Long CSS #}
+      <link rel="stylesheet" href="{{ asset('../longcss/home.css') }}" />
+    {% endblock %}
+
+    {% block javascripts %}
+      <!-- MDB -->
+      <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    {% endblock %}
+  </head>
+  <body>
+    {% block header %}{% endblock %}
+    <div class="container mt-3 text-center col-md-5">
+      {% for message in app.flashes('Success') %}
+        <p class="alert alert-success">
+          {{ message }}
+        </p>
+      {% endfor %}
+      {% for message in app.flashes('Error') %}
+        <p class="alert alert-danger">
+          {{ message }}
+        </p>
+      {% endfor %}
+    </div>
+
+    {% block body %}{% endblock %}
+    {% block footer %}
+      <!-- Footer -->
+      <hr>
+      <footer class="py-4  mt-auto">
+        <div class="container-fluid px-4">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">
+              Copyright &copy; Your Website 2021
+            </div>
+            <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    {% endblock %}
+  </body>
 </html>
