@@ -31,7 +31,8 @@
 	<body>
 		{% block header %}{% endblock %}
 		{% block sidebar %}
-			<div class="d-flex bg-light">
+			<div
+				class="d-flex bg-light">
 				<!-- Sidebar-->
 				<div class="border-end bg-light" id="sidebar-wrapper">
 					<div class="sidebar-heading border-bottom text-info">
@@ -58,7 +59,7 @@
 						</a>
 					</div>
 				</div>
-        {% block body %}{% endblock %}
+				{% block body %}{% endblock %}
 			</div>
 		{% endblock %}
 		{% block footer %}
@@ -79,9 +80,7 @@
 				</div>
 			</footer>
 		{% endblock %}
-	</body>
-</html></body></html>
-<div class="container mt-3 text-center col-md-5">
+		<div class="container mt-3 text-center col-md-5">
 			{% for message in app.flashes('Success') %}
 				<p class="alert alert-success"> {{ message }}
 				</p>
@@ -91,3 +90,5 @@
 				</p>
 			{% endfor %}
 		</div>
+	</body>
+</html>
