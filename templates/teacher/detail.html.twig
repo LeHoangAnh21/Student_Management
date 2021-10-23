@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} TEACHER DETAIL {% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('../anh_css/main.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<nav class="container">
+    <div class="grid wide">
+        <div class="row sm-gutter container__shorter">
+			<div class="col l-10">
+				<div class="home__product">
+					<div class="row sm-gutter ">
+						<div class="product_info-img">
+							<img src="{{asset('images/teacher/'~teacher.image)}}"
+							alt="avatar" width="250" height="250" style="border-radius: 50%">
+						</div>
+						<div class="product_info-item">
+							<div class="product-list_info bold">
+								<span>ID:</span><br><br>
+								<span>Name:</span><br><br>
+								<span>Email:</span><br><br>
+								<span>Birthday:</span><br><br>
+								<span>Major:</span>
+							</div>
+							<div class="product-list_info inherit">
+								<span>{{teacher.id}}</span><br><br>
+								<span>{{teacher.name}}</span><br><br>
+								<span>{{teacher.email}}</span><br><br>
+								<span>{{teacher.birthday|date('d/m/Y')}}</span><br><br>
+								<span>{{teacher.major}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+                
+{% endblock %}

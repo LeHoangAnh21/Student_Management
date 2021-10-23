@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Course;
+use App\Entity\Teacher;
+use App\Entity\Category;
+use App\Entity\Classroom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -42,14 +45,14 @@ class CourseType extends AbstractType
                 'multiple' => true,
                 'expanded' => false
             ])
-            ->add('classrooms', EntityType::class,
-            [
-                'label' => 'classroom',
-                'class' => classroom::class, 
-                'choice_label' => "name",
-                'multiple' => true,
-                'expanded' => false
-            ])
+            // ->add('classrooms', EntityType::class,
+            // [
+            //     'label' => 'Classroom',
+            //     'class' => Classroom::class, 
+            //     'choice_label' => "name",
+            //     'multiple' => true,
+            //     'expanded' => false
+            // ])
         ;
     }
 
