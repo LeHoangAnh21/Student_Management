@@ -2,18 +2,18 @@
 
 {% block title %} TEACHER DETAIL {% endblock %}
 
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('../anh_css/main.css')}}">
-{% endblock %}
 
 {% block body %}
 
 <nav class="container">
+	<a class="btn btn-outline-success mt-2" href="{{ path('teacher_edit', {'id': teacher.id}) }}" style="margin: 50px">UPDATE TEACHER</a>
+	<a class="btn btn-outline-success mt-2" href="{{ path('teacher_delete', {'id': teacher.id}) }}" onclick="return confirm('Are you sure to delete?')" style="margin: 50px">DELETE TEACHER</a>
+
     <div class="grid wide">
         <div class="row sm-gutter container__shorter">
 			<div class="col l-10">
 				<div class="home__product">
-					<div class="row sm-gutter ">
+					
 						<div class="product_info-img">
 							<img src="{{asset('images/teacher/'~teacher.image)}}"
 							alt="avatar" width="250" height="250" style="border-radius: 50%">
@@ -34,7 +34,7 @@
 								<span>{{teacher.major}}</span>
 							</div>
 						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>

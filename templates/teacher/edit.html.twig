@@ -2,9 +2,6 @@
 
 {% block title %} UPDATE TEACHER{% endblock %}
 
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('../anh_css/main.css')}}">
-{% endblock %}
 
 {% block body %}
 
@@ -53,17 +50,8 @@
                })
             }}
         </div>
-
-		{# <div class="auth-form__input">
-            {{ form_label(form.course) }}
-            {{ form_widget(form.course,
-               {
-                  'attr': { 'class' : 'form-control'}
-               })
-            }}
-        </div> #}
         <div class="auth-form__controls">
-            <button class="btn btn--primary" style="font-size: 1.5rem" type="submit">UPDATE</button>
+            <button class="btn btn--primary" style="font-size: 1.5rem; color: white; background-color: #fb5330; padding: 0;" type="submit">UPDATE</button>
         </div>
       {{ form_end(form) }}
 	</div>
