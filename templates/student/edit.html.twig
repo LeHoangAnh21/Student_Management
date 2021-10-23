@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Update Student {% endblock %}
+{# avc #}
+{% block body %}
+<div class="container-fluid col-8 mt-3">
+   <h3 class="text-center mt-5">Update Student</h3>
+      {{ form_start(form) }}
+         <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+        <div class="form-group">
+            {{ form_label(form.image) }}
+            {{ form_widget(form.image,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+        </div>
+         <div class="form-group">
+            {{ form_label(form.birthday) }}
+            {{ form_widget(form.birthday,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+         <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email, 
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+         <div class="form-group">
+            {{ form_label(form.major) }}
+            {{ form_widget(form.major,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+          <div class="form-group">
+            {{ form_label(form.studentId) }}
+            {{ form_widget(form.studentId,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+          <div class="form-group">
+            {{ form_label(form.classrooms) }}
+            {{ form_widget(form.classrooms,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+         <div class="form-group text-center mt-3 mb-4">
+            <button class="btn btn-primary" type="submit">UPDATE</button>
+         </div>
+      {{ form_end(form) }}
+</div>
+{% endblock %}
