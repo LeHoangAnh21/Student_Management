@@ -1,3 +1,8 @@
+.space {
+    width: 32px;
+    color: #fff;
+}
+
 #sidebar-wrapper {
     min-width: 200px;
 }
@@ -43,4 +48,8 @@
 
 .p-3 {
     padding: 1rem !important;
+}
+
+.height {
+    height: 500px;
 }

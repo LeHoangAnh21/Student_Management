@@ -32,22 +32,30 @@
 		{% block header %}{% endblock %}
 		{% block sidebar %}
 			<div
-				class="d-flex bg-light">
+				class="d-flex bg-light height">
 				<!-- Sidebar-->
 				<div class="border-end bg-light" id="sidebar-wrapper">
 					<div class="sidebar-heading border-bottom text-info">
 						FPT.co
 					</div>
-					<div class="list-group list-group-flush">
-						<a class="list-group-item list-group-item-action bg-light text-info  p-3" href="#!">
+					<div class="btn-group dropend list-group list-group-flush">
+						<a class="list-group-item list-group-item-action bg-light text-info  p-3" href="{{ path('homepage')}}">
 							Home
 						</a>
 						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
 							Category
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info op-3" href="#!">
+						<button type="button" class="list-group-item list-group-item-action bg-light text-info p-3" data-mdb-toggle="dropdown" aria-expanded="false">
 							Class
-						</a>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item list-group-item list-group-item-action bg-light text-info op-3" href=" {{ path('classroom_index')}} ">Class List</a>
+							</li>
+							<li>
+								<a class="dropdown-item list-group-item list-group-item-action bg-light text-info op-3" href="#">Add Class</a>
+							</li>
+						</ul>
 						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
 							Course
 						</a>
@@ -62,7 +70,7 @@
 				{% block body %}{% endblock %}
 			</div>
 		{% endblock %}
-		{% block footer %}
+		{# {% block footer %}
 			<!-- Footer -->
 			<hr>
 			<footer class="py-4  mt-auto">
@@ -79,7 +87,7 @@
 					</div>
 				</div>
 			</footer>
-		{% endblock %}
+		{% endblock %} #}
 		<div class="container mt-3 text-center col-md-5">
 			{% for message in app.flashes('Success') %}
 				<p class="alert alert-success"> {{ message }}
