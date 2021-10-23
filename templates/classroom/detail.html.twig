@@ -2,25 +2,31 @@
 
 {% block body %}
 <div class="container-fuild col-md-4 mt-3">
-    <h3 clas="text-success text-center">Class List</h3>
-    <a href=" {{path('classroom_index')}} " class="btn btn-success mt-2">Add Class</a>
+    <h3 clas="text-success text-center">Class Detail</h3>
+    <a href=" {{path('classroom_index')}} " class="btn btn-success mt-2">Back</a>
     <table class="table table-striped text-center mt-2">
         <thead>
             <tr>
                 <th>No.</th>
                 <th>Name</th>
-                <th>Courses</th>
+                <th>Email</th>
+                <th>StdID</th>
+                <th>Birthday</th>
+                <th>Image</th>
                 <th>Options</th>
             </tr>
         </thead>
         <tbody>
-            {% for classroom in classrooms %}
+            {% for a in classroom.student %}
             <tr>
-                <td>{{classroom.id}}</td>
-                <td>{{classroom.name}}</td>
-                <td></td>
+                <td>{{$i++}}</td>
+                <td>{{a.name}}</td>
+                <td>{{a.email}}</td>
+                <td>{{a.studentId}}</td>
+                <td>{{a.birthday}}</td>
+                <td>{{a.image}}</td>
                 <td>
-                    <a href="{{path('classroom_detail')}}" class="btn btn-success">Detail</a>
+                    <a href="" class="btn btn-success">Detail</a>
                     <a href="" class="btn btn-info">Edit</a>
                     <a href="" class="btn btn-error">Delete</a>
                 </td>
