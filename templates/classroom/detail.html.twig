@@ -3,7 +3,7 @@
 {% block body %}
 <div class="space">a</div>
 <div class="container-fuild col-md-10 mt-3">
-    <h3 clas="text-success justify-content-center text-center">Class Detail</h3>
+    <h3 clas="text-success text-center text-info">{{classroom.name}}</h3>
     <a href=" {{path('classroom_index')}} " class="btn btn-success mt-2">Back</a>
     <table class="table table-striped text-center mt-2">
         <thead>
@@ -13,19 +13,19 @@
                 <th>Email</th>
                 <th>StdID</th>
                 <th>Birthday</th>
-                <th>Image</th>
+                {# <th>Image</th> #}
                 <th>Options</th>
             </tr>
         </thead>
         <tbody>
             {% for a in classroom.student %}
             <tr>
-                <td></td>
+                <td>{{a.id}}</td>
                 <td>{{a.name}}</td>
                 <td>{{a.email}}</td>
                 <td>{{a.studentId}}</td>
-                <td>{{a.birthday}}</td>
-                <td>{{a.image}}</td>
+                <td>{{a.birthday|date('d/m/Y')}}</td>
+                {# <td>{{a.image}}</td> #}
                 <td>
                     <a href="" class="btn btn-success">Detail</a>
                     <a href="" class="btn btn-info">Edit</a>

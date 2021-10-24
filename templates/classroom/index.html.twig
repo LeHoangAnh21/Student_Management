@@ -1,32 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="space">a</div>
-<div class="container-fuild col-md-10 mt-3">
-    <h3 class="text-success text-center">Class List</h3>
-    <table class="table table-striped text-center mt-2">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Name</th>
-                <th>Courses</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for classroom in classrooms %}
-            <tr>
-                <td>{{classroom.id}}</td>
-                <td>{{classroom.name}}</td>
-                <td></td>
-                <td>
-                    <a href="{{path('classroom_detail', {'id': classroom.id })}}" class="btn btn-success">Detail</a>
-                    <a href="" class="btn btn-info">Edit</a>
-                    <a href=" {{ path('classroom_delete', {'id': classroom.id}) }} " class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+	<div class="space">a</div>
+	<div class="container-fuild col-md-10 mt-3">
+		<h3 class="text-success text-center text-info">Class List</h3>
+		<table class="table table-striped text-center mt-2">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Name</th>
+					<th>Courses</th>
+					<th>Options</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for classroom in classrooms %}
+					<tr>
+						<td>{{classroom.id}}</td>
+						<td>{{classroom.name}}</td>
+						<td>
+							{% for a in classroom.course %}
+								<a href="#" style="text-decoration: none;"> {{ a.title }}
+								</a>
+                                <br>
+							{% endfor %}
+						</td>
+						<td>
+							<a href="{{path('classroom_detail', {'id': classroom.id })}}" class="btn btn-success">Detail</a>
+							<a href="" class="btn btn-info">Edit</a>
+							<a href=" {{ path('classroom_delete', {'id': classroom.id}) }} " class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}

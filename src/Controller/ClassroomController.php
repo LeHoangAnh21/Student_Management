@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Classroom;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\ClassroomType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ClassroomController extends AbstractController
 {
@@ -60,5 +62,31 @@ class ClassroomController extends AbstractController
         return $this->redirectToRoute('classroom_index');
     }
 
+    /**
+     * @Route("/classroom/add", name="classroom_add")
+     */
+    public function classroomAdd(Request $request)
+    {
+        $classroom = new Classroom();
+        $form = $this->createForm(ClassroomType::class, $classroom);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) { 
+            
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($classroom);
+            $manager->flush();
+
+            $this->addFlash('Success', "Add classroom successfully !");
+            return $this->redirectToRoute("classroom_index");
+        }
+
+        return $this->render(
+            "classroom/add.html.twig",
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
     
 }
