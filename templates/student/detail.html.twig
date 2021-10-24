@@ -29,14 +29,14 @@
 					<td>{{ student.major }}</td>
 					<td>{{ student.studentId }}</td>
 
-					<td>
+					{# <td>
 						{% for r in student.classrooms %}
 							<a href="{{ path('classroom_detail', {'id': r.id }) }}">
 								{{ r.name }}
 							</a>
 							<br>
 						{% endfor %}
-					</td>
+					</td> #}
 				
 					<td>
 						<a class="btn btn-info" href="{{ path('student_edit', {'id': student.id}) }}">EDIT</a>

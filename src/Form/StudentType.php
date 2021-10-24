@@ -48,14 +48,14 @@ class StudentType extends AbstractType
                 'data_class' => null,
                 'required' => is_null($builder->getData()->getImage())
             ])
-            ->add('classrooms', EntityType::class,
-            [
-                'label' => 'Classroom',
-                'class' => Classroom::class, 
-                'choice_label' => "name",
-                'multiple' => true,
-                'expanded' => false
-            ])
+            // ->add('classrooms', EntityType::class,
+            // [
+            //     'label' => 'Classroom',
+            //     'class' => Classroom::class, 
+            //     'choice_label' => "name",
+            //     'multiple' => true,
+            //     'expanded' => false
+            // ])
         ;
     }
 

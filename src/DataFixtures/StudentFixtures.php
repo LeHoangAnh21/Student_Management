@@ -17,7 +17,7 @@ class StudentFixtures extends Fixture
             $student->setStudentId("GCH190172");
             $student->setBirthday(\DateTime::createFromFormat('Y-m-d', '2001-11-21'));
             $student->setMajor("information Technology");
-            $student->setImage("cover.jpg");
+            $student->setImage("avatar.png");
 
             $manager->persist($student);
         }

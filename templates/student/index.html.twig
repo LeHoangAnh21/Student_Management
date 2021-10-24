@@ -11,6 +11,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Image</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -21,6 +22,11 @@
 						<td>
 							<a class="text-info" href="{{ path('student_detail', {'id': student.id}) }}">
 								{{ student.name }}
+							</a>
+						</td>
+						<td>
+							<a href="{{ path('student_detail', {'id': student.id}) }}">
+								<img src="{{ asset('images/student/'~student.image )}}" alt="avatar" width="100" height="120">
 							</a>
 						</td>
 						<td>
