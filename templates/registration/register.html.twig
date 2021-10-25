@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Register {% endblock %}
+
+{% block header %}
+
+<div class="conatiner" style="margin: 30px 300px;">
+
+    <div class="header__search-input-wrap">
+        <h1> Register </h1>
+    </div>
+
+    {{ form_start(registrationForm) }}
+        <div class="auth-form__form">
+            <div class="auth-form__group" style="font-size: 1.7rem; font-weight: bolder;">
+                <label>Username</label>
+                &#160;
+                &#160;
+                {{ form_widget(registrationForm.username) }}
+            </div>
+
+            <div class="auth-form__group" style="font-size: 1.7rem; font-weight: bolder;">
+                <label>Password</label>
+                &emsp;
+                {{ form_widget(registrationForm.plainPassword, {label: 'Password'}) }}
+            </div>
+            <div class="auth-form__group" style="font-size: 1.7rem; font-weight: bolder;">
+                <label>Agree terms</label>
+                &#160;
+                {{ form_widget(registrationForm.agreeTerms) }}
+            </div>
+            <div class="auth-form__controls">
+                <button class="btn btn--primary" type="submit">Register</button>
+            </div>
+        </div>
+    {{ form_end(registrationForm) }}
+
+</div> 
+
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block footer %}{% endblock %}

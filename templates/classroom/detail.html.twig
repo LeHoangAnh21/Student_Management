@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container-fuild col-md-10 mt-3">
+    <h3 clas="text-success text-center text-info">{{classroom.name}}</h3>
+    <a href=" {{path('classroom_index')}} " class="btn btn-success mt-2">Back</a>
+    <a href=" {{ path('classroom_edit', {'id': classroom.id}) }} " class="btn btn-info">Edit</a>
+	<a href=" {{ path('classroom_delete', {'id': classroom.id}) }} " class="btn btn-danger">Delete</a>
+    <table class="table table-striped text-center mt-2">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>StdID</th>
+                <th>Birthday</th>
+                {# <th>Image</th> #}
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in classroom.student %}
+            <tr>
+                <td>{{a.id}}</td>
+                <td>{{a.name}}</td>
+                <td>{{a.email}}</td>
+                <td>{{a.studentId}}</td>
+                <td>{{a.birthday|date('d/m/Y')}}</td>
+                {# <td>{{a.image}}</td> #}
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

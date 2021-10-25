@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} COURSE DETAIL {% endblock %}
+
+{% block body %}
+<div class="container col-md-6 mt-3">
+	<a class="btn btn-outline-success mt-2" href="{{ path('course_edit', {'id': course.id}) }}" style="margin: 50px">UPDATE COURSE</a>
+	<a class="btn btn-outline-success mt-2" href="{{ path('course_delete', {'id': course.id}) }}" onclick="return confirm('Are you sure to delete?')" style="margin: 50px">DELETE COURSE</a>
+    <h3 class="text-success text-center">COURSE DETAIL</h3>
+   
+    <table class="table table-striped text-center mt-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>COURSE TITLE</th>
+                <th>COURSE CATEGORY</th>
+                <th>TEACHER</th>
+            </tr>
+        </thead>
+        <tbody>
+			<tr>
+				<td>{{ course.id }}</td>
+
+				<td style="font-weight:bolder; font-style: italic;">{{ course.title }}</td>
+
+				<td>
+					<a href="{{ path('category_detail', {'id': course.category.id }) }}">
+						{{ course.category.name }}
+					</a>
+				</td>
+
+				<td>
+					<a href="{{ path('teacher_detail', {'id': course.teacher.id }) }}">
+						{{ course.teacher.name }}
+					</a>
+				</td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

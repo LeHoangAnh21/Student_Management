@@ -39,22 +39,22 @@
 						FPT.co
 					</div>
 					<div class="list-group list-group-flush">
-						<a class="list-group-item list-group-item-action bg-light text-info  p-3" href="#!">
+						<a class="list-group-item list-group-item-action bg-light text-info  p-3" href="{{ path('homepage') }}">
 							Home
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
-							Category
+						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('category_index') }}">
+							Categories
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info op-3" href="#!">
+						<a class="list-group-item list-group-item-action bg-light text-info op-3" href="{{ path('classroom_index') }}">
 							Class
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
-							Course
+						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('course_index') }}">
+							Courses
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
+						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('student_index') }}">
 							Student
 						</a>
-						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="#!">
+						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('teacher_index') }}">
 							Teacher
 						</a>
 					</div>
@@ -62,6 +62,7 @@
 				{% block body %}{% endblock %}
 			</div>
 		{% endblock %}
+		
 		{% block footer %}
 			<!-- Footer -->
 			<hr>
@@ -80,6 +81,7 @@
 				</div>
 			</footer>
 		{% endblock %}
+
 		<div class="container mt-3 text-center col-md-5">
 			{% for message in app.flashes('Success') %}
 				<p class="alert alert-success"> {{ message }}

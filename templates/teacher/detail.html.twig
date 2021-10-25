@@ -31,7 +31,15 @@
 								<span>{{teacher.name}}</span><br><br>
 								<span>{{teacher.email}}</span><br><br>
 								<span>{{teacher.birthday|date('d/m/Y')}}</span><br><br>
-								<span>{{teacher.major}}</span>
+								<span>{{teacher.major}}</span><br><br>
+								{# <span>
+									{% for a in teacher.courses %}
+										<a href="{{ path('course_detail', {'id': a.id }) }}">
+											{{ a.title }}
+										</a>
+										<br>
+									{% endfor %}
+								</span> #}
 							</div>
 						</div>
 					

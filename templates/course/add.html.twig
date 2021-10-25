@@ -25,20 +25,20 @@
             }}
         </div>
 
-        <div class="auth-form__input">
-            {{ form_label(form.teacher) }}
-            {{ form_widget(form.teacher,
-               {
-                  'attr': { 'class' : 'form-control'}
-               })
-            }}
-        </div>
+         <div class="auth-form__input">
+               {{ form_label(form.teacher) }}
+               {{ form_widget(form.teacher,
+                  {
+                     'attr': { 'class' : 'form-control_select'}
+                  })
+               }}
+         </div>
 
         <div class="auth-form__input">
             {{ form_label(form.category) }}
             {{ form_widget(form.category,
                {
-                  'attr': { 'class' : 'form-control'}
+                  'attr': { 'class' : 'form-control_select'}
                })
             }}
         </div>

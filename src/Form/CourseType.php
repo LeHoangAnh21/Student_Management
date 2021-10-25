@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Course;
 use App\Entity\Teacher;
 use App\Entity\Category;
-use App\Entity\Classroom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -33,17 +32,13 @@ class CourseType extends AbstractType
             [
                 'label' => 'Teacher',
                 'class' => Teacher::class, 
-                'choice_label' => "name",
-                'multiple' => true,
-                'expanded' => false
+                'choice_label' => "name"
             ])
             ->add('category', EntityType::class,
             [
                 'label' => 'Category',
                 'class' => Category::class, 
-                'choice_label' => "name",
-                'multiple' => true,
-                'expanded' => false
+                'choice_label' => "name"
             ])
             // ->add('classrooms', EntityType::class,
             // [

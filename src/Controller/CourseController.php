@@ -85,6 +85,7 @@ class CourseController extends AbstractController
 
             $this->addFlash('Success', "Add course successfully !");
             return $this->redirectToRoute("course_index");
+            
         }
 
         return $this->render(

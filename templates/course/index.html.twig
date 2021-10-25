@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CourseController!{% endblock %}
+{% block title %} LIST COURSE {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/MAMP/htdocs/Day 1/studentManagement/src/Controller/CourseController.php'|file_link(0) }}">src/Controller/CourseController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/MAMP/htdocs/Day 1/studentManagement/templates/course/index.html.twig'|file_link(0) }}">templates/course/index.html.twig</a></code></li>
-    </ul>
+<div class="container col-md-6 mt-3">
+    <h3 class="text-success text-center">COURSE LIST</h3>
+    <a class="btn btn-outline-success mt-2" href="{{ path('course_add') }}">ADD COURSE</a>
+    <table class="table table-striped text-center mt-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>COURSE TITLE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.id }}</td>
+                    <td>
+                        <a href="{{ path('course_detail', {'id': course.id}) }}" style="font-weight:bolder; font-style: italic;">
+                            {{ course.title }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
