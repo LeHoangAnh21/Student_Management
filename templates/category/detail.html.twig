@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %} Detail List {% endblock %}
-{# avc #}
+
 {% block body %}
 <div class="container col-md-6 mt-3">
 		<h3 class="text-success text-center text-capitalize">Category Detail</h3>
@@ -11,6 +11,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,9 +23,9 @@
 					<td>
 						{{ category.name }}
 					</td>
-						<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">Edit Category</a>
+						<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">Edit</a>
 						<a class="btn btn-warning" href="{{ path('category_delete', {'id': category.id}) }}" 
-                        onclick="return confirm('Are you sure to delete this category ?')">DELETE</a>
+                        onclick="return confirm('Are you sure to delete this category ?')">Delete</a>
 					</td>
 				</tr>
 			</tbody>
