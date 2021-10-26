@@ -1,11 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Student{% endblock %}
-<<<<<<< HEAD
 {# avc #}
-=======
-
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 {% block body %}
 <div class="container col-md-6 mt-3">
 		<h3 class="text-success text-center">Student List</h3>
@@ -15,10 +11,6 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-<<<<<<< HEAD
-=======
-					<th>Image</th>
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -32,14 +24,6 @@
 							</a>
 						</td>
 						<td>
-<<<<<<< HEAD
-=======
-							<a href="{{ path('student_detail', {'id': student.id}) }}">
-								<img src="{{ asset('images/student/'~student.image )}}" alt="avatar" width="100" height="120">
-							</a>
-						</td>
-						<td>
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 							<a class="btn btn-info" href="{{ path('student_edit', {'id': student.id}) }}">EDIT</a>
 							<a class="btn btn-warning" href="{{ path('student_delete', {'id': student.id}) }}" 
 							onclick="return confirm('Are you sure to delete this student ?')">DELETE</a>

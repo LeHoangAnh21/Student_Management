@@ -1,33 +1,22 @@
 {% extends "base.html.twig" %}
 
 {% block title %} Detail List {% endblock %}
-<<<<<<< HEAD
 {# avc #}
-=======
-
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 {% block body %}
 <div class="container col-md-6 mt-3">
 		<h3 class="text-success text-center text-capitalize">Category Detail</h3>
 		<a class="btn btn-outline-success mt-2" href="{{ path('category_index') }}">Category List</a>
-<<<<<<< HEAD
 		{% if is_granted('ROLE_ADMIN') %}
 			<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">EDIT</a>
 			<a class="btn btn-warning" href="{{ path('category_delete', {'id': category.id}) }}" 
 			onclick="return confirm('Are you sure to delete this category ?')">DELETE</a>
 		{% endif %}
-=======
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 		<table class="table table-striped text-center mt-2">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-<<<<<<< HEAD
 					<th>Courses</th>
-=======
-					<th>Action</th>
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 				</tr>
 			</thead>
 			<tbody>
@@ -39,7 +28,6 @@
 					<td>
 						{{ category.name }}
 					</td>
-<<<<<<< HEAD
 					<td>
 						{% for r in category.courses %}
 							<a href="{{ path('course_detail', {'id': r.id }) }}">
@@ -47,18 +35,9 @@
 							</a>
 							<br>
 						{% endfor %}
-=======
-						<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">Edit</a>
-						<a class="btn btn-warning" href="{{ path('category_delete', {'id': category.id}) }}" 
-                        onclick="return confirm('Are you sure to delete this category ?')">Delete</a>
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-<<<<<<< HEAD
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd

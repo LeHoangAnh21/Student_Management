@@ -1,14 +1,7 @@
 {% extends 'base.html.twig' %}
 
-<<<<<<< HEAD
 {% block body %}
 	<div class="container col-md-6 mt-3">
-=======
-{% block title %}Student Detail{% endblock %}
-
-{% block body %}
-	<div class="container col-sm-6 mt-3">
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 		<h3 class="text-success text-center text-capitalize">Student Detail</h3>
 		<a class="btn btn-outline-success mt-2" href="{{ path('student_index') }}">Student List</a>
 		<table class="table table-striped text-center mt-2">
@@ -20,11 +13,7 @@
 					<th>Email</th>
 					<th>Major</th>
 					<th>StudentID</th>
-<<<<<<< HEAD
 					<th>Classroom</th>
-=======
-					{# <th>Classroom</th> #}
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -39,22 +28,14 @@
 					<td>{{ student.major }}</td>
 					<td>{{ student.studentId }}</td>
 
-<<<<<<< HEAD
 					<td>
-=======
-					{# <td>
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 						{% for r in student.classrooms %}
 							<a href="{{ path('classroom_detail', {'id': r.id }) }}">
 								{{ r.name }}
 							</a>
 							<br>
 						{% endfor %}
-<<<<<<< HEAD
 					</td>
-=======
-					</td> #}
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 				
 					<td>
 						<a class="btn btn-info" href="{{ path('student_edit', {'id': student.id}) }}">EDIT</a>
@@ -65,8 +46,4 @@
 			</tbody>
 		</table>
 	</div>
-<<<<<<< HEAD
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd

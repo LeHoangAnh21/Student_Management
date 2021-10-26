@@ -7,10 +7,7 @@ use App\Form\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-<<<<<<< HEAD
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-=======
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -38,11 +35,7 @@ class CategoryController extends AbstractController
      /**
      * @Route("/category/detail/{id}", name="category_detail")
      */
-<<<<<<< HEAD
     public function categoryDetail($id) {
-=======
-    public function CategoryDetail($id) {
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
         if ($category == null) {
             $this->addFlash('Error','Category not found');
@@ -58,10 +51,7 @@ class CategoryController extends AbstractController
     }
 
      /**
-<<<<<<< HEAD
       * @IsGranted("ROLE_ADMIN")
-=======
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
      * @Route("category/delete/{id}", name="category_delete")
      */
     public function deleteCategory($id) {
@@ -78,16 +68,10 @@ class CategoryController extends AbstractController
     }
 
      /**
-<<<<<<< HEAD
       * @IsGranted("ROLE_ADMIN")
      * @Route("category/add", name="category_add")
      */
     public function addCategory (Request $request) {
-=======
-     * @Route("category/add", name="category_add")
-     */
-    public function addcategory (Request $request) {
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
         $category = new category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -110,16 +94,10 @@ class CategoryController extends AbstractController
     }
 
     /**
-<<<<<<< HEAD
      * @IsGranted("ROLE_ADMIN")
      * @Route("category/edit/{id}", name="category_edit")
      */
     public function editCategory(Request $request, $id) {
-=======
-     * @Route("category/edit/{id}", name="category_edit")
-     */
-    public function editcategory(Request $request, $id) {
->>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
