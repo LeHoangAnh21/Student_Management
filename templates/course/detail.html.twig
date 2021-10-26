@@ -4,8 +4,10 @@
 
 {% block body %}
 <div class="container col-md-6 mt-3">
+	{% if is_granted('ROLE_ADMIN') %}
 	<a class="btn btn-outline-success mt-2" href="{{ path('course_edit', {'id': course.id}) }}" style="margin: 50px">UPDATE COURSE</a>
 	<a class="btn btn-outline-success mt-2" href="{{ path('course_delete', {'id': course.id}) }}" onclick="return confirm('Are you sure to delete?')" style="margin: 50px">DELETE COURSE</a>
+	{% endif %}
     <h3 class="text-success text-center">COURSE DETAIL</h3>
    
     <table class="table table-striped text-center mt-2">

@@ -4,8 +4,10 @@
 <div class="container-fuild col-md-10 mt-3">
     <h3 clas="text-success text-center text-info">{{classroom.name}}</h3>
     <a href=" {{path('classroom_index')}} " class="btn btn-success mt-2">Back</a>
+    {% if is_granted('ROLE_ADMIN') %}
     <a href=" {{ path('classroom_edit', {'id': classroom.id}) }} " class="btn btn-info">Edit</a>
 	<a href=" {{ path('classroom_delete', {'id': classroom.id}) }} " class="btn btn-danger">Delete</a>
+    {% endif %}
     <table class="table table-striped text-center mt-2">
         <thead>
             <tr>
@@ -14,20 +16,21 @@
                 <th>Email</th>
                 <th>StdID</th>
                 <th>Birthday</th>
-                {# <th>Image</th> #}
             </tr>
         </thead>
         <tbody>
             {% for a in classroom.student %}
-            <tr>
-                <td>{{a.id}}</td>
-                <td>{{a.name}}</td>
-                <td>{{a.email}}</td>
-                <td>{{a.studentId}}</td>
-                <td>{{a.birthday|date('d/m/Y')}}</td>
-                {# <td>{{a.image}}</td> #}
-                
-            </tr>
+                <tr>
+                    <td>{{a.id}}</td>
+                    <td>
+                        <a href="{{ path('student_detail', {'id': a.id }) }}">
+						    {{ a.name }}
+					    </a>
+                    </td>
+                    <td>{{a.email}}</td>
+                    <td>{{a.studentId}}</td>
+                    <td>{{a.birthday|date('d/m/Y')}}</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
