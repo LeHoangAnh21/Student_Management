@@ -88,5 +88,37 @@ class ClassroomController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Route("/classroom/edit/{id}", name="classroom_edit")
+     */
+    public function classroomEdit(Request $request, $id)
+    {
+        $classroom = $this->getDoctrine()->getRepository(Classroom::class)->find($id);
+        if($classroom == null) {
+            $this->addFlash('Error', 'Classroom not found!');
+            return $this->redirectToRoute('classroom_index');
+        }
+        $form = $this->createForm(ClassroomType::class, $classroom);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) { 
+            
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($classroom);
+            $manager->flush();
+
+            $this->addFlash('Success', "Edit classroom successfully !");
+            return $this->redirectToRoute("classroom_index");
+        }
+
+        return $this->render(
+            "classroom/edit.html.twig",
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
+    
     
 }

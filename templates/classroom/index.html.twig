@@ -15,6 +15,7 @@
 			</thead>
 			<tbody>
 				{% for classroom in classrooms %}
+					
 					<tr>
 						<td>{{classroom.id}}</td>
 						<td>{{classroom.name}}</td>
@@ -26,8 +27,8 @@
 							{% endfor %}
 						</td>
 						<td>
-							<a href="{{path('classroom_detail', {'id': classroom.id })}}" class="btn btn-success">Detail</a>
-							<a href="" class="btn btn-info">Edit</a>
+							<a href="{{ path('classroom_detail', {'id': classroom.id }) }}" class="btn btn-success">Detail</a>
+							{# <a href="" class="btn btn-info">Edit</a> #}
 							<a href=" {{ path('classroom_delete', {'id': classroom.id}) }} " class="btn btn-danger">Delete</a>
 						</td>
 					</tr>
