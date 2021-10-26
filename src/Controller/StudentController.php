@@ -4,12 +4,21 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
+<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
+=======
+>>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< HEAD
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+=======
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+>>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
 
 /**
  * @IsGranted("ROLE_USER")
@@ -54,7 +63,10 @@ class StudentController extends AbstractController
     }
 
     /**
+<<<<<<< HEAD
      * @IsGranted("ROLE_ADMIN")
+=======
+>>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
      * @Route("student/delete/{id}", name="student_delete")
      */
     public function deletestudent($id)
@@ -72,7 +84,10 @@ class StudentController extends AbstractController
     }
 
     /**
+<<<<<<< HEAD
      * @IsGranted("ROLE_ADMIN")
+=======
+>>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
      * @Route("student/add", name="student_add")
      */
     public function addstudent(Request $request)
@@ -112,7 +127,10 @@ class StudentController extends AbstractController
     }
 
     /**
+<<<<<<< HEAD
      * @IsGranted("ROLE_ADMIN")
+=======
+>>>>>>> 021438642c506fdb594f1ec3a3e036b19e9892fd
      * @Route("student/edit/{id}", name="student_edit")
      */
     public function editstudent(Request $request, $id)
