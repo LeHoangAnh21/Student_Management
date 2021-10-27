@@ -24,7 +24,7 @@ class CourseType extends AbstractType
             ])
             ->add('date', DateType::class, 
             [
-                'label' => 'Birthday',
+                'label' => 'Date start',
                 'required' => true,
                 'widget' => 'single_text'
             ])

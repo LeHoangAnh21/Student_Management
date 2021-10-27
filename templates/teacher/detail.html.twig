@@ -6,8 +6,12 @@
 {% block body %}
 
 <nav class="container">
+
+	<a href=" {{path('homepage')}} " class="btn btn-success mt-2">Back</a>
+	{% if is_granted('ROLE_ADMIN') %}
 	<a class="btn btn-outline-success mt-2" href="{{ path('teacher_edit', {'id': teacher.id}) }}" style="margin: 50px">UPDATE TEACHER</a>
 	<a class="btn btn-outline-success mt-2" href="{{ path('teacher_delete', {'id': teacher.id}) }}" onclick="return confirm('Are you sure to delete?')" style="margin: 50px">DELETE TEACHER</a>
+	{% endif %}
 
     <div class="grid wide">
         <div class="row sm-gutter container__shorter">
@@ -32,14 +36,6 @@
 								<span>{{teacher.email}}</span><br><br>
 								<span>{{teacher.birthday|date('d/m/Y')}}</span><br><br>
 								<span>{{teacher.major}}</span><br><br>
-								{# <span>
-									{% for a in teacher.courses %}
-										<a href="{{ path('course_detail', {'id': a.id }) }}">
-											{{ a.title }}
-										</a>
-										<br>
-									{% endfor %}
-								</span> #}
 							</div>
 						</div>
 					

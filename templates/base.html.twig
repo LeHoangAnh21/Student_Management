@@ -51,11 +51,16 @@
 						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('course_index') }}">
 							Courses
 						</a>
+						{% if is_granted('ROLE_ADMIN') %}
 						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('student_index') }}">
 							Student
 						</a>
 						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('teacher_index') }}">
 							Teacher
+						</a>
+						{% endif %}
+						<a class="list-group-item list-group-item-action bg-light text-info p-3" href="{{ path('app_logout') }}">
+							Logout
 						</a>
 					</div>
 				</div>

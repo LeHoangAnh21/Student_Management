@@ -5,7 +5,9 @@
 {% block body %}
 	<div class="container-fuild col-md-10 mt-3">
 		<h3 class="text-success text-center text-info">Class List</h3>
+		{% if is_granted('ROLE_ADMIN') %}
 		<a class="btn btn-outline-success mt-2" href="{{ path('classroom_add') }}">Add Class</a>
+		{% endif %}
 		<table class="table table-striped text-center mt-2">
 			<thead>
 				<tr>
@@ -25,7 +27,7 @@
 						</td>
 						<td>
 							{% for a in classroom.course %}
-								<a href="#" style="text-decoration: none;"> {{ a.title }}
+								<a href="{{path('course_detail', {'id': a.id })}}" style="text-decoration: none;"> {{ a.title }}
 								</a>
                                 <br>
 							{% endfor %}
