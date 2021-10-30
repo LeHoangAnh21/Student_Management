@@ -3,7 +3,7 @@
 {% block title %}Category{% endblock %}
 
 {% block body %}
-<div class="container col-md-6 mt-3">
+<div class="container">
 	<h3 class="text-success text-center">Category List</h3>
     {% if is_granted('ROLE_ADMIN') %}
 	    <a class="btn btn-outline-success mt-2" href="{{ path('category_add') }}">Add Category</a>

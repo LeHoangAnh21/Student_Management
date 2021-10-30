@@ -1,11 +1,11 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Add category {% endblock %}
+{% block title %} Add Major {% endblock %}
 
 {% block body %}
 
-<div class="container-fluid col-8 mt-3">
-   <h3 class="text-center mt-5">Update The Category</h3>
+<div class="container-fluid">
+   <h3 class="text-center mt-5">Update The Major</h3>
       {{ form_start(form) }}
          <div class="form-group">
             {{ form_label(form.name) }}
@@ -17,7 +17,7 @@
          </div>
          
          <div class="form-group text-center mt-3 mb-4">
-            <button class="btn btn-primary" type="submit">Update Category Now</button>
+            <button class="btn btn-primary" type="submit">Update Major Now</button>
          </div>
       {{ form_end(form) }}
 </div>
