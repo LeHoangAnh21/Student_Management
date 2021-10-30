@@ -40,6 +40,9 @@ class StudentController extends AbstractController
     public function studentDetail($id)
     {
         $student = $this->getDoctrine()->getRepository(Student::class)->find($id);
+        $bod = $student->getBirthday();
+        $diff = date_diff(date_create(), $bod);
+        $age = $diff -> format('%Y');
         if ($student == null) {
             $this->addFlash('Error', 'Student not found');
             return $this->redirectToRoute('student_index');
@@ -47,7 +50,8 @@ class StudentController extends AbstractController
             return $this->render(
                 'student/detail.html.twig',
                 [
-                    'student' => $student
+                    'student' => $student,
+                    'age' => $age
                 ]
             );
         }

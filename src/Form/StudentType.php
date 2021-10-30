@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Student;
+use App\Entity\Category;
+use App\Entity\Classroom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -37,10 +39,12 @@ class StudentType extends AbstractType
                 'required' => true,
                 'widget' => 'single_text'
             ])
-            ->add('major', TextType::class,
+            ->add('major', EntityType::class,
             [
-                'label' => 'Major',
-                'required' => true
+                'label' => 'Category',
+                'class' => Category::class, 
+                'choice_label' => "name"
+                
             ])
             ->add('image', FileType::class,
             [
@@ -48,14 +52,6 @@ class StudentType extends AbstractType
                 'data_class' => null,
                 'required' => is_null($builder->getData()->getImage())
             ])
-            // ->add('classrooms', EntityType::class,
-            // [
-            //     'label' => 'Classroom',
-            //     'class' => Classroom::class, 
-            //     'choice_label' => "name",
-            //     'multiple' => true,
-            //     'expanded' => false
-            // ])
         ;
     }
 

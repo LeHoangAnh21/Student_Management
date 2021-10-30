@@ -39,10 +39,6 @@ class Student
      */
     private $birthday;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $major;
 
     /**
      * @ORM\ManyToMany(targetEntity=Classroom::class, mappedBy="student")
@@ -53,6 +49,11 @@ class Student
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="students")
+     */
+    private $major;
 
     public function __construct()
     {
@@ -112,18 +113,6 @@ class Student
         return $this;
     }
 
-    public function getMajor(): ?string
-    {
-        return $this->major;
-    }
-
-    public function setMajor(string $major): self
-    {
-        $this->major = $major;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Classroom[]
      */
@@ -161,6 +150,18 @@ class Student
         if($image != null) {
             $this->image = $image;
         }
+
+        return $this;
+    }
+
+    public function getMajor(): ?Category
+    {
+        return $this->major;
+    }
+
+    public function setMajor(?Category $major): self
+    {
+        $this->major = $major;
 
         return $this;
     }

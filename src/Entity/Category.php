@@ -29,9 +29,21 @@ class Category
      */
     private $courses;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="major")
+     */
+    private $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Teacher::class, mappedBy="major")
+     */
+    private $teachers;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
+        $this->students = new ArrayCollection();
+        $this->teachers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +87,66 @@ class Category
             // set the owning side to null (unless already changed)
             if ($course->getCategory() === $this) {
                 $course->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Student[]
+     */
+    public function getStudents(): Collection
+    {
+        return $this->students;
+    }
+
+    public function addStudent(Student $student): self
+    {
+        if (!$this->students->contains($student)) {
+            $this->students[] = $student;
+            $student->setMajor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudent(Student $student): self
+    {
+        if ($this->students->removeElement($student)) {
+            // set the owning side to null (unless already changed)
+            if ($student->getMajor() === $this) {
+                $student->setMajor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Teacher[]
+     */
+    public function getTeachers(): Collection
+    {
+        return $this->teachers;
+    }
+
+    public function addTeacher(Teacher $teacher): self
+    {
+        if (!$this->teachers->contains($teacher)) {
+            $this->teachers[] = $teacher;
+            $teacher->setMajor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeacher(Teacher $teacher): self
+    {
+        if ($this->teachers->removeElement($teacher)) {
+            // set the owning side to null (unless already changed)
+            if ($teacher->getMajor() === $this) {
+                $teacher->setMajor(null);
             }
         }
 
