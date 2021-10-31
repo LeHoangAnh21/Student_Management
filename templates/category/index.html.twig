@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Major{% endblock %}
 
 {% block body %}
 <div class="container">
-	<h3 class="text-success text-center">Category List</h3>
+	<h3 class="text-success text-center">Major List</h3>
     {% if is_granted('ROLE_ADMIN') %}
-	    <a class="btn btn-outline-success mt-2" href="{{ path('category_add') }}">Add Category</a>
+	    <a class="btn btn-outline-success mt-2" href="{{ path('category_add') }}">Add Major</a>
     {% endif %}
     <table class="table table-striped text-center mt-2">
         <thead>

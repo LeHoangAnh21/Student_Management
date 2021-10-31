@@ -1,22 +1,18 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Detail List {% endblock %}
+{% block title %} Major Detail {% endblock %}
 
 {% block body %}
 <div class="container">
-		<h3 class="text-success text-center text-capitalize">Category Detail</h3>
-		<a class="btn btn-outline-success mt-2" href="{{ path('category_index') }}">Category List</a>
-		{% if is_granted('ROLE_ADMIN') %}
-			<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">EDIT</a>
-			<a class="btn btn-warning" href="{{ path('category_delete', {'id': category.id}) }}" 
-			onclick="return confirm('Are you sure to delete this category ?')">DELETE</a>
-		{% endif %}
+		<h3 class="text-success text-center text-capitalize">Major Detail</h3>
+		<a class="btn btn-outline-success mt-2" href="{{ path('category_index') }}">Major List</a>
 		<table class="table table-striped text-center mt-2">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
 					<th>Courses</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,6 +31,13 @@
 							</a>
 							<br>
 						{% endfor %}
+					</td>
+					<td>
+						{% if is_granted('ROLE_ADMIN') %}
+							<a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}">EDIT</a>
+							<a class="btn btn-warning" href="{{ path('category_delete', {'id': category.id}) }}" 
+							onclick="return confirm('Are you sure to delete this category ?')">DELETE</a>
+						{% endif %}
 					</td>
 				</tr>
 			</tbody>
