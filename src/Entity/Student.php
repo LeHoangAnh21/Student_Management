@@ -54,9 +54,15 @@ class Student
      */
     private $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Classroomn::class, mappedBy="student")
+     */
+    private $classroomns;
+
     public function __construct()
     {
         $this->classrooms = new ArrayCollection();
+        $this->classroomns = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -160,6 +166,33 @@ class Student
     {
         if($image != null) {
             $this->image = $image;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classroomn[]
+     */
+    public function getClassroomns(): Collection
+    {
+        return $this->classroomns;
+    }
+
+    public function addClassroomn(Classroomn $classroomn): self
+    {
+        if (!$this->classroomns->contains($classroomn)) {
+            $this->classroomns[] = $classroomn;
+            $classroomn->addStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClassroomn(Classroomn $classroomn): self
+    {
+        if ($this->classroomns->removeElement($classroomn)) {
+            $classroomn->removeStudent($this);
         }
 
         return $this;
