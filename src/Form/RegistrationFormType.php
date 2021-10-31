@@ -45,7 +45,7 @@ class RegistrationFormType extends AbstractType
             ])
         ;
     }
-
+// hello
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
