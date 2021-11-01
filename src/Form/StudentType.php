@@ -41,7 +41,7 @@ class StudentType extends AbstractType
             ])
             ->add('major', EntityType::class,
             [
-                'label' => 'Category',
+                'label' => 'Major',
                 'class' => Category::class, 
                 'choice_label' => "name"
                 
